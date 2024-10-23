@@ -1,0 +1,16 @@
+{
+  "name": "crud-backendjs",
+  "version": "1.0.0",
+  "description": "Crud back-end JS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "jest --coverage"
+  },
+  "author": "Vinícius Miranda Souza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "jest": "^29.7.0"
+  }
+}
