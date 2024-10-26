@@ -1,18 +1,24 @@
-const nomes = new Array("Vinícius", "Jessica")
+const database = require ('../config/database')
 
-// criando a classe modelPessoa
 class ModelPessoa {
-    GetPessoas() {
-        return nomes
-    }
-    CreatePessoa(nome) {
-        return nomes.push(nome)
-    }
-    UpdatePessoa(id, nome) {
-        return nomes[id] = nome
-    }
-    DeletePessoa(id) {
-        return nomes.splice(id, 1)
-    }
+    constructor() {
+        this.model = database.db.define('pessoas', {
+            id: {
+                type: database.db.Sequelize.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            name: {
+                type: database.db.Sequelize.STRING
+            },
+            email: {
+                type: database.db.Sequelize.STRING,
+                unique: true
+            },
+            password: {
+                type: database.db.Sequelize.STRING
+            }
+        })
+    } 
 }
-module.exports = new ModelPessoa()
+module.exports = new ModelPessoa().model
