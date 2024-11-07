@@ -21,5 +21,5 @@ class ModelPessoa {
             }
         })
     } 
-}
+} 
 module.exports = new ModelPessoa().model
