@@ -1,4 +1,3 @@
-// Não é mais tudo !!!!
 const express = require('express')
 const routers = require('./src/routes/pessoa')
 const database = require('./src/config/database')
@@ -13,8 +12,7 @@ database.db
     .then((_) => {
         console.info("Banco conectado com sucesso!!")
         app.listen(PORT, () => {
-            console.info(`Servidor rodando na porta ${PORT}`)
-         
+            console.info(`Servidor rodando na porta ${PORT}`)        
         })
     })
     .catch((e) => {

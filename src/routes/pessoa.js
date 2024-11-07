@@ -1,14 +1,17 @@
 const express = require('express')
-const ControllerPessoa = require('../controllers/pessoa')
+const controllerPessoa = require('../controllers/pessoa')
+const auth = require("../middleware/auth")
 
 // Inicializando as rotas do express
 const router = express.Router()
 
-//Crando as rotas
-router.get('/', ControllerPessoa.GetPessoas)
-router.post('/', ControllerPessoa.CreatePessoa)
-router.put('/:id', ControllerPessoa.UpdatePessoa)
-router.delete('/:id', ControllerPessoa.DeletePessoa)
+//Criando as rotas
+router.post('/', controllerPessoa.CreatePessoa)
+router.post('/login', controllerPessoa.Login)
+
+router.get('/', auth, controllerPessoa.GetPessoas)
+router.put('/:id', auth, controllerPessoa.UpdatePessoa)
+router.delete('/:id', auth, controllerPessoa.DeletePessoa)
 
 //Exportar as rotas
 module.exports = router
